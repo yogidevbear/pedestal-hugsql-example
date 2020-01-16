@@ -52,9 +52,9 @@
     (require '[shop-api.sql.products :as sd] :reload)
     (require '[shop-api.products :as d] :reload))
   (s/valid? ::new-product {:name "Foo" :availability 100 :price 10})
-  (s/valid? ::update-product {:id 11 :name "Foo" :availability 100 :price 12.26})
-  (sd/product db {:id (Integer. "11")})
-  (sd/update-product db {:name "Non Existant (edited)" :availability 103 :price 56.13 :id 11}))
-;curl -X POST -H 'Content-Type: application/json' -i http://localhost:8890/products --data '{"name": "Non Existant", "availability": 104, "price": 56.79}'
-;curl -X POST -H 'Content-Type: application/json' -i http://localhost:8890/product/12 --data '{"name": "Non Existant (edited)", "availability": 103, "price": 43.21}'
-;curl -X DELETE -H 'Content-Type: application/json' -i http://localhost:8890/product/12
+  (s/valid? ::update-product {:id 7 :name "Foo" :availability 100 :price 12.26})
+  (sd/product db {:id (Integer. "6")})
+  (sd/update-product db {:name "Non Existant (edited)" :availability 103 :price 56.13 :id 7}))
+;curl -X POST -H 'Content-Type: application/json' -i http://localhost:8890/products --data '{"name": "Non Existant", "availability": 104, "price": 16.79}'
+;curl -X POST -H 'Content-Type: application/json' -i http://localhost:8890/product/7 --data '{"name": "Non Existant (edited)", "availability": 94, "price": 13.21}'
+;curl -X DELETE -H 'Content-Type: application/json' -i http://localhost:8890/product/7
